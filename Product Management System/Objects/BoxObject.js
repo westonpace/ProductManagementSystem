@@ -34,7 +34,6 @@ class Box
 				this.CanExecute = false;
 				this.ShowInfo();
 				console.log("Hovered");
-				document.getElementById(`Table${this.ID}`).style.position = "absolute";
 			}
 		}
 		else
