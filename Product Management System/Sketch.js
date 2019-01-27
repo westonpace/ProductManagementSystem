@@ -9,26 +9,19 @@ let ProductList =
 let ProductObj =[];
 let NewBox = [];
 let BoxPos = [50, 100, 150, 200, 250, 300];
+
 function setup() 
 {
 	createCanvas(700, 600);
-
-	
-
-	for (let i = 0; i < ProductList.length; i++)
-	{
-		
-		ProductObj[i] = new Product(ProductList[i][0], ProductList[i][1], ProductList[i][2], ProductList[i][3]);
-		console.log(ProductObj[i]);		
-	}
 
 	for (var i = 0; i < 4; i++) 
 	{
 		NewBox[i] = new Box(BoxPos[i], BoxPos[i], 50, 50);
 		NewBox[i].ID = i;
+		
 		for (var j = 0; j < ProductObj.length; j++)
 		{
-			NewBox[i].AddProduct(ProductObj[j]);
+			NewBox[i].AddProduct(new Product(ProductList[j][0], ProductList[j][1], ProductList[j][2], ProductList[j][3]));
 		}
 	}
 	
