@@ -33,6 +33,21 @@ class Box
 		this.Acc.mult(0);
 	}
 
+	Move()
+	{
+		if(this.Pos.x > 700 - 150 || this.Pos.x < 0)
+		{
+			this.Vel.mult(-1);
+			
+		}
+
+		if(this.Pos.y > 600 - 150 || this.Pos.y < 0)
+		{
+			this.Vel.mult(1);		
+		}
+		
+		//console.log(this.Pos.x + " | " + this.Pos.y)
+	}
 
 	AddProduct(product)
 	{

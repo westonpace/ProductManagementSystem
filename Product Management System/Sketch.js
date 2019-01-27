@@ -29,7 +29,7 @@ function draw()
 	NewBox[0].Show();
 	NewBox[0].Update();
 	NewBox[0].DistLine(WPosX + 25, WPosY + 25);
-
+	NewBox[0].Move();
 }
 
 function mousePressed()
