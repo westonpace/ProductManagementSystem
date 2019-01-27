@@ -25,7 +25,7 @@ function setup()
 	for (var i = 0; i < 4; i++) 
 	{
 		NewBox[i] = new Box(BoxPos[i], BoxPos[i], 50, 50);
-
+		NewBox[i].ID = i;
 		for (var j = 0; j < ProductObj.length; j++)
 		{
 			NewBox[i].AddProduct(ProductObj[j]);
@@ -54,7 +54,7 @@ function mousePressed()
 }
 
 
-function Destroy() 
+function AddAmount() 
 {
-	
+	NewBox[0].Storage[0].Amount = 10;
 }
