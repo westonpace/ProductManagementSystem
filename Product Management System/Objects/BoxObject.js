@@ -107,26 +107,8 @@ class Box
 
 			this.Table.appendChild(Row2);
 		}
+
 		Div.appendChild(this.Table)
-		document.body.appendChild(Div);
-
-		/*let Row1 = document.createElement("tr");
-		let Row2 = document.createElement("tr");
-		let Row3 = document.createElement("tr");
-		let Row4 = document.createElement("tr");
-		
-		let Column1A = document.createElement("td");
-		let Column1B = document.createElement("td");
-
-		let Column1AText = document.createTextNode("Name:");
-		let Column1BText = document.createTextNode(this.Storage[0].Name);
-
-		Column1A.appendChild(Column1AText);
-		Column1B.appendChild(Column1BText);
-
-		Row1.appendChild(Column1A);
-		Row1.appendChild(Column1B); */
-
-	
+		document.body.appendChild(Div);	
 	}
 }
