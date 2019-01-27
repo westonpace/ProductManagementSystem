@@ -33,7 +33,7 @@ class Box
 			{
 				this.CanExecute = false;
 				this.ShowInfo();
-				console.log("Hovered");
+				
 			}
 		}
 		else
@@ -50,11 +50,11 @@ class Box
 
 	ShowInfo()
 	{
-		let Div = document.createElement("div");
-		this.Table = document.createElement("table");
-		this.Table.setAttribute("id", "Table" + this.ID);
+		let Div = document.createElement("div");		
+		Div.setAttribute("id", "Table" + this.ID);
 
-		Div.setAttribute("id", "DTable0");
+		this.Table = document.createElement("table");
+		this.Table.setAttribute("width", "350");
 
 		let Row1 = document.createElement("tr");
 

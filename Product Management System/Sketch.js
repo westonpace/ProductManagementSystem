@@ -1,31 +1,58 @@
-let Products = 
+let ProductList = 
 [
 	["Apple", "Fruit", "5.00", 1],
 	["Skittles", "Candy", "2.00", 1],
-	["Tomato", "Vegetable", "3.00", 1]
+	["Tomato", "Vegetable", "3.00", 1],
+	["Sprite", "Drink", "4.00", 1]
 ];
-let NewBox;
+
+let ProductObj =[];
+let NewBox = [];
+let BoxPos = [50, 100, 150, 200, 250, 300];
 function setup() 
 {
 	createCanvas(700, 600);
 
-	NewBox = new Box(width/2, height/2, 50, 50);
+	
 
-	for (let i = 0; i < Products.length; i++)
+	for (let i = 0; i < ProductList.length; i++)
 	{
-		let NewProduct = new Product(Products[i][0], Products[i][1], Products[i][2], Products[i][3]);
-		NewBox.AddProduct(NewProduct);
+		
+		ProductObj[i] = new Product(ProductList[i][0], ProductList[i][1], ProductList[i][2], ProductList[i][3]);
+		console.log(ProductObj[i]);		
 	}
-	console.log(NewBox);
+
+	for (var i = 0; i < 4; i++) 
+	{
+		NewBox[i] = new Box(BoxPos[i], BoxPos[i], 50, 50);
+
+		for (var j = 0; j < ProductObj.length; j++)
+		{
+			NewBox[i].AddProduct(ProductObj[j]);
+		}
+	}
+	
 }
 
 function draw() 
 {
 	background(51);
-	NewBox.Show();
-	NewBox.Hovered(mouseX, mouseY);
-	 
+	
+	for (let i = 0; i < NewBox.length; i++) 
+	{
+		NewBox[i].Show();
+	}
 }
+
+function mousePressed()
+{
+	for (let i = 0; i < NewBox.length; i++) 
+	{
+		NewBox[i].Hovered(mouseX, mouseY);
+	}
+
+}
+
 
 function Destroy() 
 {
