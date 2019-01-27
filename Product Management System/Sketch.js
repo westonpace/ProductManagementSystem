@@ -18,8 +18,8 @@ function setup()
 	{
 		NewBox[i] = new Box(BoxPos[i], BoxPos[i], 50, 50);
 		NewBox[i].ID = i;
-		
-		for (var j = 0; j < ProductObj.length; j++)
+
+		for (var j = 0; j < ProductList.length; j++)
 		{
 			NewBox[i].AddProduct(new Product(ProductList[j][0], ProductList[j][1], ProductList[j][2], ProductList[j][3]));
 		}
