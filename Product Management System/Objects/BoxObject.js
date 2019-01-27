@@ -2,15 +2,37 @@ class Box
 {
 	constructor(posX, posY, sizeX, sizeY)
 	{
-		this.PosX = posX;
-		this.PosY = posY
+		this.Pos = createVector(posX, posY);	
+		this.Vel = createVector(1, 1);
+		this.Acc = createVector();
+
 		this.SizeX = sizeX;
 		this.SizeY = sizeY;
+
 		this.CanExecute = true;
 		this.ID = 0;
 		this.Table;
 		this.Storage = [];
 	}
+
+	ApplyForce(force)
+	{
+		this.Acc.add(force);
+	}
+
+	DistLine(endposX, endposY)
+	{
+		stroke(255);
+		line(this.Pos.x + this.SizeX/2, this.Pos.y + this.SizeY/2, endposX, endposY);	
+	}
+
+	Update()
+	{
+		this.Vel.add(this.Acc);
+		this.Pos.add(this.Vel);
+		this.Acc.mult(0);
+	}
+
 
 	AddProduct(product)
 	{
@@ -21,19 +43,19 @@ class Box
 	{
 		fill(14, 142, 0);
 		noStroke();
-		rect(this.PosX, this.PosY, this.SizeX, this.SizeY);
+		rect(this.Pos.x, this.Pos.y, this.SizeX, this.SizeY);
 	}
 
-	Hovered(px, py)
+	Click(px, py)
 	{
-		if (px > this.PosX &&  px < this.PosX + this.SizeX && py > this.PosY &&  py < this.PosY + this.SizeY)
+		if (px > this.Pos.x &&  px < this.Pos.x + this.SizeX && py > this.Pos.y &&  py < this.Pos.y + this.SizeY)
 		{
 			
 			if(this.CanExecute)
 			{
 				this.CanExecute = false;
 				this.ShowInfo();
-				
+				console.log("Hovered");
 			}
 		}
 		else

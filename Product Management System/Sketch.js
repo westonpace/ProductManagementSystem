@@ -10,40 +10,31 @@ let ProductObj =[];
 let NewBox = [];
 let BoxPos = [50, 100, 150, 200, 250, 300];
 
+let WPosX = 100;
+let WPosY = 100;
+
 function setup() 
 {
 	createCanvas(700, 600);
-
-	for (var i = 0; i < 4; i++) 
-	{
-		NewBox[i] = new Box(BoxPos[i], BoxPos[i], 50, 50);
-		NewBox[i].ID = i;
-
-		for (var j = 0; j < ProductList.length; j++)
-		{
-			NewBox[i].AddProduct(new Product(ProductList[j][0], ProductList[j][1], ProductList[j][2], ProductList[j][3]));
-		}
-	}
-	
+	NewBox[0] = new Box(200, 200, 50, 50);
 }
 
 function draw() 
 {
 	background(51);
-	
-	for (let i = 0; i < NewBox.length; i++) 
-	{
-		NewBox[i].Show();
-	}
+	fill(0, 124, 106);
+	noStroke();
+	rect(WPosX, WPosY, 50, 50);
+
+	NewBox[0].Show();
+	NewBox[0].Update();
+	NewBox[0].DistLine(WPosX + 25, WPosY + 25);
+
 }
 
 function mousePressed()
 {
-	for (let i = 0; i < NewBox.length; i++) 
-	{
-		NewBox[i].Hovered(mouseX, mouseY);
-	}
-
+	NewBox[0].Click(mouseX, mouseY);
 }
 
 
