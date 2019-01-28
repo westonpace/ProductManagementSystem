@@ -13,10 +13,12 @@ let BoxPos = [50, 100, 150, 200, 250, 300];
 let WPosX = 100;
 let WPosY = 100;
 
+
 function setup() 
 {
 	createCanvas(700, 600);
-	NewBox[0] = new Box(200, 200, 50, 50);
+	let target = new Box(WPosX, WPosY, 0, 0);
+	NewBox[0] = new Box(200, 200, 50, 50, target);
 }
 
 function draw() 

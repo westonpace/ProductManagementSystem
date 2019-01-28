@@ -1,10 +1,11 @@
 class Box
 {
-	constructor(posX, posY, sizeX, sizeY)
+	constructor(posX, posY, sizeX, sizeY, target)
 	{
 		this.Pos = createVector(posX, posY);	
 		this.Vel = createVector(1, 1);
 		this.Acc = createVector();
+		this.target = target;
 
 		this.SizeX = sizeX;
 		this.SizeY = sizeY;
@@ -35,18 +36,13 @@ class Box
 
 	Move()
 	{
-		if(this.Pos.x > 700 - 150 || this.Pos.x < 0)
-		{
-			this.Vel.mult(-1);
-			
-		}
-
-		if(this.Pos.y > 600 - 150 || this.Pos.y < 0)
-		{
-			this.Vel.mult(1);		
-		}
-		
-		//console.log(this.Pos.x + " | " + this.Pos.y)
+		let xDiff = this.target.Pos.x - this.Pos.x;
+		let yDiff = this.target.Pos.y - this.Pos.y;
+		const magnitude = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+		let unitX = xDiff / magnitude;
+		let unitY = yDiff / magnitude;
+		this.Vel.x = unitX;
+		this.Vel.y = unitY;
 	}
 
 	AddProduct(product)
